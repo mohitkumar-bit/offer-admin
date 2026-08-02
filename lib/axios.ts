@@ -2,7 +2,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 const API = axios.create({
-    baseURL: 'https://offer-backend-xgft.onrender.com/api', // Based on the backend server port
+    baseURL: 'http://localhost:5001/api', // Based on the backend server port
 });
 
 API.interceptors.request.use((config) => {

@@ -3,14 +3,15 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LayoutDashboard, CheckSquare, Users, Store, Ticket, ChevronLeft, ChevronRight, Bell } from 'lucide-react';
+import { LayoutDashboard, CheckSquare, Users, Store, Ticket, ChevronLeft, ChevronRight, Bell, Star } from 'lucide-react';
 
 const navItems = [
     { label: 'Dashboard', href: '/', icon: LayoutDashboard },
-    { label: 'Verifications', href: '/verifications', icon: CheckSquare },
+    { label: 'Business Approvals', href: '/verifications', icon: CheckSquare },
     { label: 'Businesses', href: '/businesses', icon: Store },
     { label: 'Users', href: '/users', icon: Users },
-    { label: 'Coupons', href: '/coupons', icon: Ticket },
+    { label: 'Offer Approvals', href: '/coupons', icon: Ticket },
+    { label: 'Featured Posts', href: '/featured', icon: Star },
     { label: 'Notifications', href: '/notifications', icon: Bell },
 ];
 

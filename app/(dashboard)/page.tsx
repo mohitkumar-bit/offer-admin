@@ -2,13 +2,16 @@
 
 import React, { useEffect, useState } from 'react';
 import API from '@/lib/axios';
-import { Users, Store, Ticket, Clock, ArrowUpRight, Loader2 } from 'lucide-react';
+import { Users, Store, Ticket, Clock, ArrowUpRight, Loader2, Star } from 'lucide-react';
 
 interface Stats {
   totalUsers: number;
   totalBusinesses: number;
   pendingBusinesses: number;
   totalCoupons: number;
+  pendingCoupons?: number;
+  approvedCoupons?: number;
+  featuredCoupons?: number;
 }
 
 export default function DashboardPage() {
@@ -56,7 +59,7 @@ export default function DashboardPage() {
       textColor: 'text-indigo-600'
     },
     {
-      label: 'Pending Verifications',
+      label: 'Pending Businesses',
       value: stats?.pendingBusinesses || 0,
       icon: Clock,
       color: 'bg-orange-500',
@@ -64,12 +67,28 @@ export default function DashboardPage() {
       textColor: 'text-orange-600'
     },
     {
-      label: 'Total Coupons',
-      value: stats?.totalCoupons || 0,
+      label: 'Pending Offers',
+      value: stats?.pendingCoupons || 0,
+      icon: Ticket,
+      color: 'bg-amber-500',
+      lightColor: 'bg-amber-50',
+      textColor: 'text-amber-600'
+    },
+    {
+      label: 'Live Offers',
+      value: stats?.approvedCoupons || 0,
       icon: Ticket,
       color: 'bg-emerald-500',
       lightColor: 'bg-emerald-50',
       textColor: 'text-emerald-600'
+    },
+    {
+      label: 'Featured Posts',
+      value: stats?.featuredCoupons || 0,
+      icon: Star,
+      color: 'bg-amber-500',
+      lightColor: 'bg-amber-50',
+      textColor: 'text-amber-600'
     },
   ];
 
@@ -80,7 +99,7 @@ export default function DashboardPage() {
         <p className="text-gray-500">Welcome back! Here's what's happening today.</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
         {cards.map((card) => {
           const Icon = card.icon;
           return (
